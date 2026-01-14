@@ -3,26 +3,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gifmenow.com"),
-  title: "Texting GIFs | Funny Waiting, Seen, Typing & Ghosted Reactions",
+  title: "Texting GIFs | gifmenow.com",
   description:
-    "Browse the best texting GIFs for every moment: waiting for a reply, left on read, typing bubble, and ghosted reactions. Quick, shareable GIFs for iMessage, Instagram, and more.",
-  alternates: {
-    canonical: "https://gifmenow.com/texting-gifs",
-  },
+    "Browse texting GIFs for every situation—awkward conversations, canceled plans, ghosted, funny reactions, and more. Find the perfect GIF to send fast.",
+  alternates: { canonical: "https://gifmenow.com/texting-gifs" },
   openGraph: {
-    title: "Texting GIFs | Funny Waiting, Seen, Typing & Ghosted Reactions",
+    title: "Texting GIFs | gifmenow.com",
     description:
-      "The best texting GIFs for waiting, seen, typing, and ghosted moments. Perfect reactions for iMessage and social.",
+      "Texting GIFs for every situation—awkward chats, canceled plans, ghosted, funny reactions, and more.",
     url: "https://gifmenow.com/texting-gifs",
     siteName: "gifmenow.com",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Texting GIFs | Funny Waiting, Seen, Typing & Ghosted Reactions",
+    title: "Texting GIFs | gifmenow.com",
     description:
-      "Find the best texting GIFs for waiting, seen, typing, and ghosted moments.",
+      "Browse texting GIFs for every situation—awkward chats, canceled plans, ghosted, funny reactions, and more.",
   },
   robots: {
     index: true,
@@ -30,215 +27,116 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-snippet": -1,
       "max-image-preview": "large",
+      "max-snippet": -1,
       "max-video-preview": -1,
     },
   },
 };
 
-export default function TextingGifsPage() {
-  const hubJsonLd = {
+const pages = [
+  { slug: "awkward-conversation-gifs", name: "Awkward Conversation GIFs" },
+  { slug: "cancels-last-minute-gifs", name: "Cancels Last Minute GIFs" },
+  { slug: "dont-know-what-to-say-gifs", name: "Don’t Know What To Say GIFs" },
+  { slug: "funny-gifs", name: "Funny GIFs" },
+  { slug: "ghosted-gifs", name: "Ghosted GIFs" },
+  { slug: "group-chat-silent-gifs", name: "Group Chat Silent GIFs" },
+  { slug: "low-key-annoyed-gifs", name: "Low Key Annoyed GIFs" },
+  { slug: "plans-fall-apart-gifs", name: "Plans Fall Apart GIFs" },
+  { slug: "pretending-to-be-fine-gifs", name: "Pretending To Be Fine GIFs" },
+  { slug: "shocked-but-calm-gifs", name: "Shocked But Calm GIFs" },
+];
+
+export default function TextingGifsHubPage() {
+  const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Texting GIFs",
     url: "https://gifmenow.com/texting-gifs",
     description:
-      "A hub for the best texting reaction GIFs: waiting for a reply, left on read, typing bubble, and ghosted.",
-    isPartOf: {
-      "@type": "WebSite",
-      name: "gifmenow.com",
-      url: "https://gifmenow.com",
-    },
+      "Browse texting GIFs for every situation—awkward conversations, canceled plans, ghosted, funny reactions, and more.",
+    isPartOf: { "@type": "WebSite", name: "gifmenow.com", url: "https://gifmenow.com" },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://gifmenow.com",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Texting GIFs",
-          item: "https://gifmenow.com/texting-gifs",
-        },
-      ],
-    },
-    mainEntity: {
-      "@type": "ItemList",
-      name: "Texting GIF Categories",
-      itemListOrder: "https://schema.org/ItemListOrderAscending",
-      numberOfItems: 4,
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Waiting for a Reply GIFs",
-          url: "https://gifmenow.com/waiting-for-a-reply",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Seen / Left on Read GIFs",
-          url: "https://gifmenow.com/left-on-read-gifs",
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Typing Bubble GIFs",
-          url: "https://gifmenow.com/typing-gifs",
-        },
-        {
-          "@type": "ListItem",
-          position: 4,
-          name: "Ghosted GIFs",
-          url: "https://gifmenow.com/ghosted-gifs",
-        },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://gifmenow.com" },
+        { "@type": "ListItem", position: 2, name: "Texting GIFs", item: "https://gifmenow.com/texting-gifs" },
       ],
     },
   };
 
-  const categories = [
-    {
-      title: "Waiting for a Reply",
-      href: "/waiting-for-a-reply",
-      description:
-        "When the chat is silent and you’re refreshing like it’s your job.",
-    },
-    {
-      title: "Seen / Left on Read",
-      href: "/left-on-read-gifs",
-      description:
-        "For the heartbreak of that read receipt and zero response.",
-    },
-    {
-      title: "Typing Bubble",
-      href: "/typing-gifs",
-      description:
-        "For when the dots appear… and you need a reaction immediately.",
-    },
-    {
-      title: "Ghosted",
-      href: "/ghosted-gifs",
-      description:
-        "For when they vanish into the void and you need the perfect GIF.",
-    },
-  ];
-
   return (
-    <main style={{ maxWidth: 960, margin: "0 auto", padding: "24px 16px" }}>
-      {/* JSON-LD for SEO */}
+    <main style={{ maxWidth: 1100, margin: "0 auto", padding: "24px 16px" }}>
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(hubJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Top nav */}
-      <nav style={{ display: "flex", gap: 16, marginBottom: 24 }}>
+      <nav aria-label="Breadcrumb" style={{ fontSize: 14, marginBottom: 14 }}>
         <Link href="/" style={{ textDecoration: "underline" }}>
           Home
-        </Link>
-        <Link href="/texting-gifs" style={{ textDecoration: "underline" }}>
-          Texting GIFs
-        </Link>
+        </Link>{" "}
+        <span aria-hidden="true">›</span> <span>Texting GIFs</span>
       </nav>
 
-      <header style={{ marginBottom: 16 }}>
-        <h1 style={{ fontSize: 34, lineHeight: 1.15, marginBottom: 10 }}>
+      <header style={{ marginBottom: 18 }}>
+        <h1 style={{ fontSize: 34, lineHeight: 1.15, margin: "0 0 10px 0" }}>
           Texting GIFs
         </h1>
-        <p style={{ fontSize: 16, lineHeight: 1.6, maxWidth: 780 }}>
-          Welcome to the texting reaction hub on <strong>gifmenow.com</strong>.
-          Here you’ll find the best GIFs for every chat situation — waiting for a
-          reply, left on read, typing bubble suspense, and getting ghosted.
-          Bookmark this page and pick a category below.
+        <p style={{ fontSize: 16, margin: 0, maxWidth: 900 }}>
+          Explore the best <strong>texting GIFs</strong> for every mood—awkward
+          conversations, canceled plans, ghosted vibes, funny reactions, and
+          more. Pick a category below to find the perfect GIF to send.
         </p>
       </header>
 
-      {/* Category grid */}
       <section aria-label="Texting GIF categories">
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
             gap: 14,
-            marginTop: 18,
           }}
         >
-          {categories.map((c) => (
+          {pages.map((p) => (
             <Link
-              key={c.href}
-              href={c.href}
+              key={p.slug}
+              href={`/texting-gifs/${p.slug}`}
               style={{
-                border: "1px solid #ddd",
+                border: "1px solid #eee",
                 borderRadius: 14,
-                padding: 16,
+                padding: 14,
                 textDecoration: "none",
                 display: "block",
               }}
             >
-              <h2 style={{ fontSize: 18, margin: "0 0 8px 0" }}>{c.title}</h2>
-              <p style={{ margin: 0, color: "#333", lineHeight: 1.5 }}>
-                {c.description}
-              </p>
-              <p style={{ margin: "10px 0 0 0", textDecoration: "underline" }}>
-                View GIFs →
-              </p>
+              <div style={{ fontWeight: 800, fontSize: 16, marginBottom: 6 }}>
+                {p.name}
+              </div>
+              <div style={{ fontSize: 13, opacity: 0.75 }}>
+                Browse GIFs you can send in seconds
+              </div>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* Extra internal links for SEO */}
-      <section style={{ marginTop: 26 }}>
-        <h2 style={{ fontSize: 18, marginBottom: 10 }}>
-          Popular texting GIF pages
+      <section style={{ marginTop: 26, maxWidth: 950 }}>
+        <h2 style={{ fontSize: 22, margin: "0 0 10px 0" }}>
+          Popular texting situations
         </h2>
-        <ul style={{ lineHeight: 1.8, paddingLeft: 18 }}>
-          <li>
-            <Link href="/waiting-for-a-reply">Waiting for a reply GIFs</Link>
-          </li>
-          <li>
-            <Link href="/left-on-read-gifs">Left on read / seen GIFs</Link>
-          </li>
-          <li>
-            <Link href="/typing-gifs">Typing bubble GIFs</Link>
-          </li>
-          <li>
-            <Link href="/ghosted-gifs">Ghosted GIFs</Link>
-          </li>
-        </ul>
+        <p style={{ margin: 0, lineHeight: 1.6 }}>
+          Whether you’re reacting to an awkward pause, a last-minute cancel, or a
+          ghosted message thread, a quick GIF can say what you don’t want to
+          type. Bookmark this hub and come back whenever you need a perfect
+          reaction.
+        </p>
       </section>
 
-      {/* Footer */}
-      <footer
-        style={{
-          marginTop: 34,
-          paddingTop: 16,
-          borderTop: "1px solid #eee",
-          fontSize: 14,
-          display: "flex",
-          justifyContent: "space-between",
-          gap: 16,
-          flexWrap: "wrap",
-        }}
-      >
-        <span>© {new Date().getFullYear()} gifmenow.com</span>
-        <div style={{ display: "flex", gap: 12 }}>
-          <Link href="/" style={{ textDecoration: "underline" }}>
-            Home
-          </Link>
-          <Link href="/texting-gifs" style={{ textDecoration: "underline" }}>
-            Texting GIFs
-          </Link>
-          <Link href="/waiting-for-a-reply" style={{ textDecoration: "underline" }}>
-            Waiting
-          </Link>
-        </div>
+      <footer style={{ marginTop: 28, paddingTop: 16, borderTop: "1px solid #eee" }}>
+        <p style={{ margin: 0, fontSize: 14, opacity: 0.8 }}>
+          © {new Date().getFullYear()} gifmenow.com — Texting GIF collections
+        </p>
       </footer>
     </main>
   );

@@ -1,3 +1,5 @@
+import Breadcrumbs from "../components/Breadcrumbs";
+
 import GifGrid from "../components/GifGrid";
 import type { Metadata } from "next";
 
@@ -62,7 +64,19 @@ const GIFS = [
 export default function Page() {
   return (
     <main style={{ padding: 40, fontFamily: "Arial, sans-serif" }}>
+      <Breadcrumbs
+  crumbs={[
+    { label: "Home", href: "/" },
+    { label: "Texting GIFs", href: "/texting-gifs" },
+    { label: "Don’t Know What to Say" },
+  ]}
+/>
+
+      Home → Texting GIFs → [Current Page]
+
       <h1>GIFs for When You Don’t Know What to Say</h1>
+     
+
 
       <p style={{ maxWidth: 720 }}>
         A curated collection of reaction GIFs for those moments when you’re
