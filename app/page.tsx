@@ -2,7 +2,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const revalidate = 60 * 60 * 24; // daily refresh
+export const revalidate = 86400; // daily refresh
+
 
 const SITE_NAME = "gifmenow.com";
 const BASE_URL = "https://www.gifmenow.com";
