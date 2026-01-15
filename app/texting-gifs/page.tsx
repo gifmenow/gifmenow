@@ -2,24 +2,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+export const revalidate = 60 * 60 * 24; // daily refresh
+
+const SITE_NAME = "gifmenow.com";
+const BASE_URL = "https://www.gifmenow.com";
+const CANONICAL = `${BASE_URL}/texting-gifs`;
+
 export const metadata: Metadata = {
-  title: "Texting GIFs | gifmenow.com",
+  title: "Texting Reaction GIFs for Every Moment | gifmenow.com",
   description:
-    "Browse texting GIFs for every situation—awkward conversations, canceled plans, ghosted, funny reactions, and more. Find the perfect GIF to send fast.",
-  alternates: { canonical: "https://gifmenow.com/texting-gifs" },
+    "Browse texting reaction GIFs for every situation—awkward conversations, canceled plans, ghosted vibes, funny replies, and more. Find the perfect GIF to send fast.",
+  alternates: { canonical: CANONICAL },
   openGraph: {
-    title: "Texting GIFs | gifmenow.com",
+    title: "Texting Reaction GIFs for Every Moment | gifmenow.com",
     description:
-      "Texting GIFs for every situation—awkward chats, canceled plans, ghosted, funny reactions, and more.",
-    url: "https://gifmenow.com/texting-gifs",
-    siteName: "gifmenow.com",
+      "Texting reaction GIFs for awkward chats, canceled plans, ghosted vibes, funny replies, and more—pick a category and send the perfect GIF.",
+    url: CANONICAL,
+    siteName: SITE_NAME,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Texting GIFs | gifmenow.com",
+    title: "Texting Reaction GIFs for Every Moment | gifmenow.com",
     description:
-      "Browse texting GIFs for every situation—awkward chats, canceled plans, ghosted, funny reactions, and more.",
+      "Browse texting reaction GIFs for awkward chats, canceled plans, ghosted vibes, funny replies, and more.",
   },
   robots: {
     index: true,
@@ -34,6 +40,13 @@ export const metadata: Metadata = {
   },
 };
 
+const featured = [
+  { slug: "left-on-read-gifs", name: "Left on Read GIFs", note: "When they saw it… and stayed silent" },
+  { slug: "waiting-for-a-reply-gifs", name: "Waiting for a Reply GIFs", note: "For the long, painful pause" },
+  { slug: "double-text", name: "Double Text GIFs", note: "Because one message wasn’t enough" },
+  { slug: "typing-gifs", name: "Typing GIFs", note: "When you’re about to say something" },
+];
+
 const pages = [
   { slug: "awkward-conversation-gifs", name: "Awkward Conversation GIFs" },
   { slug: "cancels-last-minute-gifs", name: "Cancels Last Minute GIFs" },
@@ -47,97 +60,231 @@ const pages = [
   { slug: "shocked-but-calm-gifs", name: "Shocked But Calm GIFs" },
 ];
 
+function formatLastUpdated(d: Date) {
+  // Server-rendered (UTC) to avoid hydration mismatch
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    timeZone: "UTC",
+  }).format(d);
+}
+
 export default function TextingGifsHubPage() {
+  const lastUpdated = formatLastUpdated(new Date());
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Texting GIFs",
-    url: "https://gifmenow.com/texting-gifs",
+    url: CANONICAL,
     description:
-      "Browse texting GIFs for every situation—awkward conversations, canceled plans, ghosted, funny reactions, and more.",
-    isPartOf: { "@type": "WebSite", name: "gifmenow.com", url: "https://gifmenow.com" },
+      "Browse texting reaction GIFs for every situation—awkward conversations, canceled plans, ghosted vibes, funny replies, and more.",
+    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: BASE_URL },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://gifmenow.com" },
-        { "@type": "ListItem", position: 2, name: "Texting GIFs", item: "https://gifmenow.com/texting-gifs" },
+        { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+        { "@type": "ListItem", position: 2, name: "Texting GIFs", item: CANONICAL },
       ],
     },
   };
 
   return (
-    <main style={{ maxWidth: 1100, margin: "0 auto", padding: "24px 16px" }}>
+    <main className="page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <nav aria-label="Breadcrumb" style={{ fontSize: 14, marginBottom: 14 }}>
-        <Link href="/" style={{ textDecoration: "underline" }}>
+      <nav className="breadcrumbs" aria-label="Breadcrumb">
+        <Link href="/" className="crumbLink">
           Home
-        </Link>{" "}
-        <span aria-hidden="true">›</span> <span>Texting GIFs</span>
+        </Link>
+        <span className="crumbSep" aria-hidden="true">
+          ›
+        </span>
+        <span className="crumbCurrent">Texting GIFs</span>
       </nav>
 
-      <header style={{ marginBottom: 18 }}>
-        <h1 style={{ fontSize: 34, lineHeight: 1.15, margin: "0 0 10px 0" }}>
-          Texting GIFs
-        </h1>
-        <p style={{ fontSize: 16, margin: 0, maxWidth: 900 }}>
-          Explore the best <strong>texting GIFs</strong> for every mood—awkward
-          conversations, canceled plans, ghosted vibes, funny reactions, and
-          more. Pick a category below to find the perfect GIF to send.
+      <header className="top">
+        <h1>Texting Reaction GIFs for Awkward, Funny, and Silent Moments</h1>
+
+        <p className="description">
+          Explore the best <strong>texting reaction GIFs</strong> for every mood—awkward conversations,
+          canceled plans, ghosted vibes, funny replies, and those moments when you{" "}
+          <em>don’t know what to say</em>. Pick a category below and send the perfect GIF in seconds
+          (great for group chats, too).
+        </p>
+
+        <p className="freshness" aria-label="Freshness">
+          Updated daily · Last updated: <strong>{lastUpdated} (UTC)</strong>
         </p>
       </header>
 
-      <section aria-label="Texting GIF categories">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-            gap: 14,
-          }}
-        >
-          {pages.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/texting-gifs/${p.slug}`}
-              style={{
-                border: "1px solid #eee",
-                borderRadius: 14,
-                padding: 14,
-                textDecoration: "none",
-                display: "block",
-              }}
-            >
-              <div style={{ fontWeight: 800, fontSize: 16, marginBottom: 6 }}>
-                {p.name}
-              </div>
-              <div style={{ fontSize: 13, opacity: 0.75 }}>
-                Browse GIFs you can send in seconds
-              </div>
+      <section className="section" aria-label="Top texting reactions">
+        <h2>Top texting reactions</h2>
+
+        <div className="featuredGrid">
+          {featured.map((p) => (
+            <Link key={p.slug} href={`/texting-gifs/${p.slug}`} className="card">
+              <div className="cardTitle">{p.name}</div>
+              <div className="cardNote">{p.note}</div>
             </Link>
           ))}
         </div>
       </section>
 
-      <section style={{ marginTop: 26, maxWidth: 950 }}>
-        <h2 style={{ fontSize: 22, margin: "0 0 10px 0" }}>
-          Popular texting situations
-        </h2>
-        <p style={{ margin: 0, lineHeight: 1.6 }}>
-          Whether you’re reacting to an awkward pause, a last-minute cancel, or a
-          ghosted message thread, a quick GIF can say what you don’t want to
-          type. Bookmark this hub and come back whenever you need a perfect
-          reaction.
+      <section className="section" aria-label="All texting GIF categories">
+        <h2>All categories</h2>
+
+        <div className="grid">
+          {pages.map((p) => (
+            <Link key={p.slug} href={`/texting-gifs/${p.slug}`} className="card">
+              <div className="cardTitle">{p.name}</div>
+              <div className="cardSub">Browse GIFs you can send in seconds</div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section prose" aria-label="About texting GIFs">
+        <h2>Popular texting situations</h2>
+        <p>
+          Whether you’re reacting to an awkward pause, a last-minute cancel, a seen message, or a
+          ghosted thread, a quick GIF can say what you don’t want to type. Bookmark this hub and
+          come back whenever you need a perfect reaction.
         </p>
       </section>
 
-      <footer style={{ marginTop: 28, paddingTop: 16, borderTop: "1px solid #eee" }}>
-        <p style={{ margin: 0, fontSize: 14, opacity: 0.8 }}>
-          © {new Date().getFullYear()} gifmenow.com — Texting GIF collections
+      <footer className="footer">
+        <p>
+          © {new Date().getFullYear()} {SITE_NAME} — Texting GIF collections
         </p>
       </footer>
+
+      <style>{`
+        /* App Router hub page styles (scoped) */
+        .page {
+          width: 100%;
+          margin: 0;
+          padding: 18px 14px 60px;
+          font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+          font-weight: 400;
+        }
+
+        .top {
+          max-width: 1100px;
+          margin: 0 auto 18px;
+          padding: 0 6px;
+        }
+
+        .breadcrumbs {
+          max-width: 1100px;
+          margin: 0 auto 12px;
+          padding: 0 6px;
+          font-size: 13px;
+        }
+
+        .crumbLink {
+          text-decoration: underline;
+        }
+
+        .crumbSep {
+          margin: 0 8px;
+          opacity: 0.7;
+        }
+
+        h1 {
+          font-size: 40px;
+          line-height: 1.12;
+          margin: 0 0 10px 0;
+          font-weight: 700;
+        }
+
+        h2 {
+          font-size: 22px;
+          margin: 0 0 10px 0;
+          font-weight: 700;
+        }
+
+        .description {
+          font-size: 16px;
+          margin: 0;
+          max-width: 86ch;
+          line-height: 1.6;
+        }
+
+        .freshness {
+          margin: 10px 0 0;
+          font-size: 13px;
+          opacity: 0.78;
+        }
+
+        .section {
+          max-width: 1100px;
+          margin: 18px auto 0;
+          padding: 0 6px;
+        }
+
+        .featuredGrid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+          gap: 12px;
+        }
+
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 12px;
+        }
+
+        .card {
+          border: 1px solid #eee;
+          border-radius: 16px;
+          padding: 14px;
+          text-decoration: none;
+          display: block;
+          transition: transform 0.08s ease;
+        }
+
+        .card:focus,
+        .card:hover {
+          transform: translateY(-1px);
+        }
+
+        .cardTitle {
+          font-weight: 700;
+          font-size: 16px;
+          margin-bottom: 6px;
+        }
+
+        .cardSub {
+          font-size: 13px;
+          opacity: 0.75;
+        }
+
+        .cardNote {
+          font-size: 13px;
+          opacity: 0.8;
+          line-height: 1.35;
+        }
+
+        .prose p {
+          margin: 0;
+          line-height: 1.7;
+          max-width: 90ch;
+        }
+
+        .footer {
+          max-width: 1100px;
+          margin: 26px auto 0;
+          padding: 16px 6px 0;
+          border-top: 1px solid #eee;
+          font-size: 14px;
+          opacity: 0.82;
+        }
+      `}</style>
     </main>
   );
 }
