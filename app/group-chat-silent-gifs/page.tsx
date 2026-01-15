@@ -1,106 +1,89 @@
-import Breadcrumbs from "../components/Breadcrumbs";
+import Link from "next/link";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
+import GifGrid from "@/app/components/GifGrid";
 
-import GifGrid from "../components/GifGrid";
-import type { Metadata } from "next";
+export const revalidate = 60 * 60 * 24;
 
-export const metadata: Metadata = {
-  title: "GIFs for When the Group Chat Is Silent | GifMeNow",
+export const metadata = {
+  title: "Group Chat Silent GIFs | When Nobody Replies | gifmenow.com",
   description:
-    "The best GIFs to send when the group chat goes quiet. Perfect reactions for being left on read or ignored.",
-  metadataBase: new URL("https://gifmenow.com"),
-  openGraph: {
-    title: "GIFs for When the Group Chat Is Silent",
-    description:
-      "Reaction GIFs for awkward silence, unread messages, and dead group chats.",
-    url: "https://gifmenow.com/group-chat-silent-gifs",
-    siteName: "GifMeNow",
-    type: "website",
+    "When the group chat goes quiet. Browse the best group chat silent reaction GIFs for texting when nobody responds.",
+  alternates: {
+    canonical: "https://www.gifmenow.com/group-chat-silent-gifs",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Group Chat Silent GIFs",
-    description:
-      "Perfect reaction GIFs for when nobody replies in the group chat.",
-  },
-  robots: { index: true, follow: true },
 };
 
-const GIFS = [
-  // "https://giphy.com/embed/xThtalGmbaeGRx7rsk",
-  "https://giphy.com/embed/PLEdLheDHeAxi",
-  "https://giphy.com/embed/SU9BzO2PhJmekOb9uN",
-  "https://giphy.com/embed/RhH8IOlfKsrotlzyeM",
-  "https://giphy.com/embed/t2uKNqP1Pn3nmqzUiW",
-  "https://giphy.com/embed/v1dEeyqDwYcLzMekcB",
-  "https://giphy.com/embed/1Zbeweu52ZaQE",
-  "https://giphy.com/embed/V9sdMLcmIFqqk",
-  "https://giphy.com/embed/8FhXc8w45aN32",
-  "https://giphy.com/embed/aPGJRw1ZRPsI5tvtJ5",
-  "https://giphy.com/embed/rftFlHFtgn85ze9pgi",
-  "https://giphy.com/embed/yJaV6skEVBOJtFlOZV",
-  "https://giphy.com/embed/4VVxSZwKcRr0hOhfvr",
-  "https://giphy.com/embed/VdAvVcQLJDwKKDUDJR",
-  "https://giphy.com/embed/i0C1f6209kF3Krh6im",
-  "https://giphy.com/embed/H1cmnXAeEiYIUPPG1b",
-  "https://giphy.com/embed/IhNx3QL2shEv3EkHYZ",
-  "https://giphy.com/embed/KY3zjLLc9CbbdY50nz",
-  "https://giphy.com/embed/11jcnNoAzeG4YU",
-  "https://giphy.com/embed/h2evfJLrv2cPPZwYnr",
-  "https://giphy.com/embed/VLN4Sl9TqHBX8WKTSq",
-  "https://giphy.com/embed/3o6ZsZdSYO2P4rvUOc",
-  "https://giphy.com/embed/m94CQefM0pAzt6CDqF",
-  "https://giphy.com/embed/MmQev6uBrT0Ix11AHQ",
-  "https://giphy.com/embed/PsnDmrzEJU02Q",
-  "https://giphy.com/embed/WpHbTtIHyicmio7h25",
-  "https://giphy.com/embed/3o751RaYn4s9ma4Oly",
-  "https://giphy.com/embed/XcebmWAFzhbVxW9gr6"
-
+const gifs = [
+  {
+    id: "gcs-1",
+    embedUrl: "https://giphy.com/embed/3o6Zt4HU9uwXmXSAuI",
+    alt: "Group chat silent reaction",
+  },
+  {
+    id: "gcs-2",
+    embedUrl: "https://giphy.com/embed/l0MYt5jPR6QX5pnqM",
+    alt: "Waiting for someone to reply",
+  },
+  {
+    id: "gcs-3",
+    embedUrl: "https://giphy.com/embed/26ufcVAp3AiJJsrIs",
+    alt: "Awkward silence in the chat",
+  },
+  {
+    id: "gcs-4",
+    embedUrl: "https://giphy.com/embed/3o7aD2saalBwwftBIY",
+    alt: "Nobody reacted at all",
+  },
+  {
+    id: "gcs-5",
+    embedUrl: "https://giphy.com/embed/3o6ZsYp12wrWdJImk0",
+    alt: "Crickets in the group chat",
+  },
 ];
 
-export default function Page() {
-  return (
-    <main style={{ padding: 40, fontFamily: "Arial, sans-serif" }}>
-        <Breadcrumbs
-  crumbs={[
+export default function GroupChatSilentGifsPage() {
+  const crumbs = [
     { label: "Home", href: "/" },
-    { label: "Texting GIFs", href: "/texting-gifs" },
-    { label: "Group Chat Is Silent" },
-  ]}
-/>
+    { label: "Group Chat Silent GIFs" },
+  ];
 
-        Home → Texting GIFs → [Current Page]
+  return (
+    <main className="page">
+      <Breadcrumbs crumbs={crumbs} />
 
-      <h1>GIFs for When the Group Chat Is Silent</h1>
+      <h1>Group Chat Silent GIFs</h1>
 
-      <p style={{ maxWidth: 720 }}>
-        The best reaction GIFs for when you send a message to the group chat and
-        nobody responds. Perfect for awkward silence and being left on read.
+      <p className="page-intro">
+        You drop a message in the group chat… and then nothing. These reaction
+        GIFs are perfect for when nobody replies, the vibe is off, or you’re
+        stuck staring at silence.
       </p>
 
-      <div
-        style={{
-          marginTop: 16,
-          padding: 14,
-          border: "1px solid #eee",
-          borderRadius: 12,
-          maxWidth: 720,
-        }}
-      >
-        <h2 style={{ marginTop: 0 }}>Related pages</h2>
-        <ul style={{ margin: 0, paddingLeft: 18 }}>
+      <GifGrid gifs={gifs} />
+
+      <section className="related">
+        <h2>More Texting Reaction GIFs</h2>
+        <ul>
           <li>
-            <a href="/dont-know-what-to-say-gifs">GIFs for When You Don’t Know What to Say</a>
+            <Link href="/texting-gifs/awkward-conversation-gifs">
+              Awkward Conversation GIFs
+            </Link>
           </li>
           <li>
-            <a href="/waiting-for-a-reply-gifs">GIFs for When You’re Waiting for a Reply</a>
+            <Link href="/texting-gifs/left-on-read-gifs">
+              Left on Read GIFs
+            </Link>
+          </li>
+          <li>
+            <Link href="/texting-gifs/waiting-for-a-reply-gifs">
+              Waiting for a Reply GIFs
+            </Link>
           </li>
         </ul>
-      </div>
+      </section>
 
-      <GifGrid gifs={GIFS} />
-
-      <p style={{ marginTop: 16, fontSize: 13, color: "#666" }}>
-        GIFs embedded from GIPHY.
+      <p className="freshness">
+        Updated daily with new reaction GIFs · {new Date().toDateString()}
       </p>
     </main>
   );
