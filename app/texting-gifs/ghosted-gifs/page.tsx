@@ -1,228 +1,103 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
+import GifGrid from "@/app/components/GifGrid";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://gifmenow.com"),
-  title: "Ghosted GIFs | Funny Ghosting & Disappearing Text Reactions",
+export const revalidate = 60 * 60 * 24; // daily refresh
+
+export const metadata = {
+  title: "Ghosted GIFs | When They Stop Texting Back | gifmenow.com",
   description:
-    "Best ghosted GIFs for when they disappear mid-conversation. Funny ghosting reactions for dating, texting, and group chats.",
-  alternates: { canonical: "https://gifmenow.com/ghosted-gifs" },
+    "They disappeared without a word. Browse the best ghosted reaction GIFs for texting when you realize you’ve been completely ignored.",
+  alternates: {
+    canonical: "https://www.gifmenow.com/texting-gifs/ghosted-gifs",
+  },
   openGraph: {
-    title: "Ghosted GIFs | Funny Ghosting & Disappearing Text Reactions",
-    description:
-      "Ghosted GIFs for when they vanish. Perfect for dating and texting reactions.",
-    url: "https://gifmenow.com/ghosted-gifs",
-    siteName: "gifmenow.com",
     type: "website",
+    url: "https://www.gifmenow.com/texting-gifs/ghosted-gifs",
+    siteName: "gifmenow.com",
+    title: "Ghosted GIFs | When They Stop Texting Back | gifmenow.com",
+    description:
+      "They disappeared without a word. Browse the best ghosted reaction GIFs for texting when you realize you’ve been completely ignored.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ghosted GIFs | Funny Ghosting Reactions",
-    description: "Ghosted GIFs for when they disappear mid-chat.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-    },
+    title: "Ghosted GIFs | When They Stop Texting Back | gifmenow.com",
+    description:
+      "They disappeared without a word. Browse the best ghosted reaction GIFs for texting when you realize you’ve been completely ignored.",
   },
 };
 
-const GIFS = [
-  {
-    embedId: "5YhLUgK0vxd4ZPuYka",
-    title: "Ghosted",
-    giphyUrl: "https://giphy.com/gifs/foxtv-fox-ghosted-on-5YhLUgK0vxd4ZPuYka",
-  },
-  {
-    embedId: "TFeeHnorUpf8LgQtDm",
-    title: "Ghosted (on FOX)",
-    giphyUrl: "https://giphy.com/gifs/foxtv-fox-ghosted-TFeeHnorUpf8LgQtDm",
-  },
-  {
-    embedId: "OSf6goKnN2m5purLBI",
-    title: "Very good (ghosted)",
-    giphyUrl:
-      "https://giphy.com/gifs/foxtv-paranormal-ghosted-on-fox-OSf6goKnN2m5purLBI",
-  },
-  {
-    embedId: "QmMoHIt4onP2EOQ2yU",
-    title: "Ghosted (paranormal)",
-    giphyUrl: "https://giphy.com/gifs/ghostedonfox-fox-paranormal-QmMoHIt4onP2EOQ2yU",
-  },
-  {
-    embedId: "irg6UscW3jAhncfH5X",
-    title: "Ghosted",
-    giphyUrl: "https://giphy.com/gifs/ghostedonfox-irg6UscW3jAhncfH5X",
-  },
-  {
-    embedId: "goHwIdW7tilQnphiK9",
-    title: "Ghosted (spooky mood)",
-    giphyUrl: "https://giphy.com/gifs/spooky-movie-monsters-modern-goHwIdW7tilQnphiK9",
-  },
+const gifs = [
+  { id: "ghosted-1", embedUrl: "https://giphy.com/embed/GDTenQepzptV7F6McD", alt: "Realizing you got ghosted" },
+  { id: "ghosted-2", embedUrl: "https://giphy.com/embed/J9SGZWFtcjH0GelxUm", alt: "Waiting but no reply" },
+  { id: "ghosted-3", embedUrl: "https://giphy.com/embed/Cx7VuExVnETdVyW53g", alt: "Confused silence after texting" },
+  { id: "ghosted-4", embedUrl: "https://giphy.com/embed/w89ak63KNl0nJl80ig", alt: "Checking phone again" },
+  { id: "ghosted-5", embedUrl: "https://giphy.com/embed/XQaa2apHIuvbBY5r9a", alt: "Zoning out after being ignored" },
+  { id: "ghosted-6", embedUrl: "https://giphy.com/embed/dJQRcKrntTqegwqZZC", alt: "Acceptance after ghosting" },
+  { id: "ghosted-7", embedUrl: "https://giphy.com/embed/VN3dGsdlp9nCPUfe8y", alt: "Dead inside reaction" },
+  { id: "ghosted-8", embedUrl: "https://giphy.com/embed/yjGdFXbm8KpXF5Xqco", alt: "Internal screaming" },
+  { id: "ghosted-9", embedUrl: "https://giphy.com/embed/eBCnpuRGBhQGY", alt: "No response energy" },
+  { id: "ghosted-10", embedUrl: "https://giphy.com/embed/tbsyS16NFRhwQ", alt: "Emotionally checked out" },
+  { id: "ghosted-11", embedUrl: "https://giphy.com/embed/FBeSx3itXlUQw", alt: "Left hanging" },
+  { id: "ghosted-12", embedUrl: "https://giphy.com/embed/MMgja87oX0VUs", alt: "Conversation sinking feeling" },
+  { id: "ghosted-13", embedUrl: "https://giphy.com/embed/zJMkK5JKqdlvw16Bog", alt: "Skeleton dead inside" },
+  { id: "ghosted-14", embedUrl: "https://giphy.com/embed/aTf4PONtSYB1e", alt: "Actually ghosted" },
+  { id: "ghosted-15", embedUrl: "https://giphy.com/embed/Z8pzh8afGbZle", alt: "Scooby Doo confusion" },
+  { id: "ghosted-16", embedUrl: "https://giphy.com/embed/GK5cQrLmRbgIJfOl5Z", alt: "Call of Duty ghost reaction" },
+  { id: "ghosted-17", embedUrl: "https://giphy.com/embed/c8scirNg0aDhO59UkH", alt: "Spooky ghost reaction" },
+  { id: "ghosted-18", embedUrl: "https://giphy.com/embed/khLv6cbb0VoedBsiaF", alt: "Halloween ghost reaction" },
+  { id: "ghosted-19", embedUrl: "https://giphy.com/embed/EtH3A45sJ21qM", alt: "Casper ghost reaction" },
+  { id: "ghosted-20", embedUrl: "https://giphy.com/embed/Ke97StdZZrPRbefL6D", alt: "Power ghosted reaction" },
+  { id: "ghosted-21", embedUrl: "https://giphy.com/embed/hYHUcErxfZwbK", alt: "Real ghost reaction" },
+  { id: "ghosted-22", embedUrl: "https://giphy.com/embed/Yph6D7zPIVtIc", alt: "Ghosts reaction" },
+  { id: "ghosted-23", embedUrl: "https://giphy.com/embed/NqqaysALSYoco", alt: "Stupid ghost reaction" },
+  { id: "ghosted-24", embedUrl: "https://giphy.com/embed/TWViwVSWC1yNT9dMs1", alt: "31 Nights of Freeform ghost" },
+  { id: "ghosted-25", embedUrl: "https://giphy.com/embed/mwDiODJuaGG8o", alt: "Patrick Swayze ghost reaction" },
+  { id: "ghosted-26", embedUrl: "https://giphy.com/embed/0Bx2BV2KstM8qrWIdF", alt: "CBS Ghosts reaction" },
+  { id: "ghosted-27", embedUrl: "https://giphy.com/embed/wFWQIJq7XQkxuJWmDh", alt: "Haunted Mansion ghost" },
+  { id: "ghosted-28", embedUrl: "https://giphy.com/embed/O6kb3Pa3Kgbsc", alt: "Earsplit ghost reaction" },
+  { id: "ghosted-29", embedUrl: "https://giphy.com/embed/3oxRmCTRE4Q0QxA5Py", alt: "Ghost Hunters reaction" },
+  { id: "ghosted-30", embedUrl: "https://giphy.com/embed/t8Nx50erR39oI9fTYN", alt: "Ghost story reaction" },
 ];
 
 export default function GhostedGifsPage() {
-  const pageJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Ghosted GIFs",
-    url: "https://gifmenow.com/ghosted-gifs",
-    description:
-      "A collection of ghosted GIFs for ghosting, disappearing texts, and no response reactions.",
-    isPartOf: { "@type": "WebSite", name: "gifmenow.com", url: "https://gifmenow.com" },
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://gifmenow.com" },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Texting GIFs",
-          item: "https://gifmenow.com/texting-gifs",
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Ghosted GIFs",
-          item: "https://gifmenow.com/ghosted-gifs",
-        },
-      ],
-    },
-    mainEntity: {
-      "@type": "ItemList",
-      name: "Ghosted GIFs",
-      numberOfItems: GIFS.length,
-      itemListElement: GIFS.map((g, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: g.title,
-        url: g.giphyUrl,
-      })),
-    },
-  };
+  const crumbs = [
+    { label: "Home", href: "/" },
+    { label: "Texting GIFs", href: "/texting-gifs" },
+    { label: "Ghosted GIFs" },
+  ];
 
   return (
-    <main style={{ maxWidth: 960, margin: "0 auto", padding: "24px 16px" }}>
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd) }}
-      />
+    <main className="page">
+      <Breadcrumbs crumbs={crumbs} />
 
-      <nav style={{ display: "flex", gap: 16, marginBottom: 24, flexWrap: "wrap" }}>
-        <Link href="/" style={{ textDecoration: "underline" }}>
-          Home
-        </Link>
-        <Link href="/texting-gifs" style={{ textDecoration: "underline" }}>
-          Texting GIFs
-        </Link>
-        <Link href="/ghosted-gifs" style={{ textDecoration: "underline" }}>
-          Ghosted
-        </Link>
-      </nav>
+      <h1>Ghosted GIFs for Texting When They Disappear</h1>
 
-      <header style={{ marginBottom: 14 }}>
-        <h1 style={{ fontSize: 34, lineHeight: 1.15, marginBottom: 10 }}>
-          Ghosted GIFs
-        </h1>
-        <p style={{ fontSize: 16, lineHeight: 1.6, maxWidth: 820 }}>
-          When they disappear like a magic trick. These <strong>ghosted GIFs</strong> are perfect
-          for calling out ghosting, unanswered DMs, and conversations that fell off a cliff.
-          Use them in dating chats, group chats, and anywhere you need a “where’d you go?” reaction.
-        </p>
-      </header>
+      <p className="page-intro">
+        One minute you’re mid-conversation. The next? Silence. These ghosted reaction GIFs
+        perfectly capture the moment you realize they’re not texting back — and probably won’t.
+      </p>
 
-      <section aria-label="Ghosted GIF embeds">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: 14,
-          }}
-        >
-          {GIFS.map((g) => (
-            <div
-              key={g.embedId}
-              style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12 }}
-            >
-              <div style={{ fontWeight: 600, marginBottom: 10 }}>{g.title}</div>
+      <GifGrid gifs={gifs} />
 
-              <div style={{ width: "100%", height: 0, paddingBottom: "60%", position: "relative" }}>
-                <iframe
-                  src={`https://giphy.com/embed/${g.embedId}`}
-                  width="100%"
-                  height="100%"
-                  style={{ position: "absolute" }}
-                  frameBorder="0"
-                  allowFullScreen
-                  title={g.title}
-                />
-              </div>
-
-              <p style={{ margin: "10px 0 0 0" }}>
-                <a
-                  href={g.giphyUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ textDecoration: "underline" }}
-                >
-                  Open on Giphy
-                </a>
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section style={{ marginTop: 26 }}>
-        <h2 style={{ fontSize: 18, marginBottom: 10 }}>More texting GIF categories</h2>
-        <ul style={{ lineHeight: 1.9, paddingLeft: 18 }}>
+      <section className="related">
+        <h2>More Texting Reaction GIFs</h2>
+        <ul>
           <li>
-            <Link href="/waiting-for-a-reply">Waiting for a reply GIFs</Link>
+            <Link href="/texting-gifs/left-on-read-gifs">Left on Read GIFs</Link>
           </li>
           <li>
-            <Link href="/left-on-read-gifs">Left on read / seen GIFs</Link>
+            <Link href="/texting-gifs/waiting-for-a-reply-gifs">Waiting for a Reply GIFs</Link>
           </li>
           <li>
-            <Link href="/typing-gifs">Typing bubble GIFs</Link>
-          </li>
-          <li>
-            <Link href="/texting-gifs">Back to Texting GIFs hub</Link>
+            <Link href="/texting-gifs/double-text">Double Text GIFs</Link>
           </li>
         </ul>
       </section>
 
-      <footer
-        style={{
-          marginTop: 34,
-          paddingTop: 16,
-          borderTop: "1px solid #eee",
-          fontSize: 14,
-          display: "flex",
-          justifyContent: "space-between",
-          gap: 16,
-          flexWrap: "wrap",
-        }}
-      >
-        <span>© {new Date().getFullYear()} gifmenow.com</span>
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link href="/" style={{ textDecoration: "underline" }}>
-            Home
-          </Link>
-          <Link href="/texting-gifs" style={{ textDecoration: "underline" }}>
-            Texting GIFs
-          </Link>
-          <Link href="/waiting-for-a-reply" style={{ textDecoration: "underline" }}>
-            Waiting
-          </Link>
-        </div>
-      </footer>
+      <p className="freshness">
+        Updated daily with new ghosted reaction GIFs · {new Date().toDateString()}
+      </p>
     </main>
   );
 }
