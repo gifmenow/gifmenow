@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   },
   description:
     "gifmenow.com helps you find the perfect GIF for every moment—texting reactions, awkward conversations, canceled plans, ghosted vibes, and more.",
-  metadataBase: new URL("https://gifmenow.com"),
+  
   alternates: {
-    canonical: "https://gifmenow.com",
+    canonical: "https://www.gifmenow.com",
   },
   openGraph: {
     title: "gifmenow.com | Find the Perfect GIF for Every Moment",
     description:
       "Find reaction GIFs for texting, awkward moments, canceled plans, ghosted conversations, and more.",
-    url: "https://gifmenow.com",
+    url: "https://www.gifmenow.com",
     siteName: "gifmenow.com",
     type: "website",
   },

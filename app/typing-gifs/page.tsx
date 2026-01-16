@@ -6,7 +6,7 @@ import GifGrid from "@/app/components/GifGrid";
 export const revalidate = 60 * 60 * 24; // daily refresh
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.gifmenow.com"),
+  
   title: "Typing GIFs | Typing Bubble, Dots, and “They’re Typing…” Reactions | gifmenow.com",
   description:
     "Best typing GIFs for when the dots appear. Funny typing bubble reactions for suspense, anticipation, and chaotic texting energy.",
