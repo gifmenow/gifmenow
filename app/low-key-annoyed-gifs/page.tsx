@@ -2,7 +2,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import GifGrid from "@/app/components/GifGrid";
 
-export const revalidate = 60 * 60 * 24; // daily refresh
+export const revalidate = 86400; // daily refresh
 
 export const metadata = {
   title: "Low-Key Annoyed GIFs | Subtle Irritated Reactions | gifmenow.com",

@@ -5,9 +5,9 @@ import GifGrid from "@/app/components/GifGrid";
 export const revalidate = 86400;
 
 export const metadata = {
-  title: "Don’t Know What to Say GIFs | Awkward Silence Reactions",
+  title: "Don't Know What to Say GIFs | Awkward Silence Reactions | gifmenow.com",
   description:
-    "Reaction GIFs for awkward pauses, speechless moments, and conversations where you don’t know what to say next.",
+    "When the conversation hits a wall. Browse reaction GIFs for moments when you don’t know what to say next.",
   alternates: {
     canonical: "https://www.gifmenow.com/dont-know-what-to-say-gifs",
   },
@@ -24,12 +24,27 @@ const gifs = [
     embedUrl: "https://giphy.com/embed/l3q2K5jinAlChoCLS",
     alt: "No words reaction",
   },
+  {
+    id: "dkws-3",
+    embedUrl: "https://giphy.com/embed/5wFHW55Vdk2MCZSMIV",
+    alt: "Speechless moment",
+  },
+  {
+    id: "dkws-4",
+    embedUrl: "https://giphy.com/embed/26BRuo6sLetdllPAQ",
+    alt: "Uncomfortable pause",
+  },
+  {
+    id: "dkws-5",
+    embedUrl: "https://giphy.com/embed/9V3e2mxWvD89wyw5l5",
+    alt: "Brain empty reaction",
+  },
 ];
 
 export default function DontKnowWhatToSayPage() {
   const crumbs = [
     { label: "Home", href: "/" },
-    { label: "Don’t Know What to Say GIFs" },
+    { label: "Don't Know What to Say GIFs" },
   ];
 
   return (
@@ -39,8 +54,9 @@ export default function DontKnowWhatToSayPage() {
       <h1>Don’t Know What to Say GIFs</h1>
 
       <p className="page-intro">
-        Some moments leave you speechless. These reaction GIFs are perfect for
-        awkward pauses, uncomfortable replies, and conversations that stall.
+        Some moments leave you completely speechless. These reaction GIFs are
+        perfect for awkward pauses, uncomfortable replies, and moments when
+        you genuinely don’t know what to say.
       </p>
 
       <GifGrid gifs={gifs} />
@@ -60,6 +76,10 @@ export default function DontKnowWhatToSayPage() {
           </li>
         </ul>
       </section>
+
+      <p className="freshness">
+        Updated daily with new reaction GIFs · {new Date().toDateString()}
+      </p>
     </main>
   );
 }

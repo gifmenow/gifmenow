@@ -2,7 +2,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import GifGrid from "@/app/components/GifGrid";
 
-export const revalidate = 60 * 60 * 24;
+export const revalidate = 86400;
 
 export const metadata = {
   title: "Group Chat Silent GIFs | When Nobody Replies | gifmenow.com",
