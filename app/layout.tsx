@@ -1,7 +1,14 @@
 // app/layout.tsx
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import TopNav from "./components/TopNav";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -10,7 +17,7 @@ export const metadata: Metadata = {
   },
   description:
     "gifmenow.com helps you find the perfect GIF for every moment—texting reactions, awkward conversations, canceled plans, ghosted vibes, and more.",
-  
+
   alternates: {
     canonical: "https://www.gifmenow.com",
   },
@@ -48,7 +55,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <TopNav />
         {children}
       </body>

@@ -14,17 +14,16 @@ export default function GifGrid({ gifs }: GifGridProps) {
   if (!gifs || gifs.length === 0) return null;
 
   return (
-    <section className={styles.grid}>
+    <section className={styles.grid} aria-label="Reaction GIF grid">
       {gifs.map((gif) => (
-        <article key={gif.id} className={styles.tile}>
-          <div className={styles.embedWrap}>
-            <iframe
-              src={gif.embedUrl}
-              loading="lazy"
-              allowFullScreen
-              title={gif.alt}
-            />
-          </div>
+        <article key={gif.id} className={styles.gifTile}>
+          <iframe
+            className={styles.iframe}
+            src={gif.embedUrl}
+            loading="lazy"
+            allowFullScreen
+            title={gif.alt}
+          />
         </article>
       ))}
     </section>
