@@ -131,21 +131,15 @@ export default function DoubleTextPage() {
 
   return (
     <main style={{ maxWidth: 1100, margin: "0 auto", padding: "24px 16px" }}>
-      {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" style={{ fontSize: 14, marginBottom: 14 }}>
-        <Link href="/" style={{ textDecoration: "underline" }}>
-          Home
-        </Link>{" "}
+        <Link href="/" style={{ textDecoration: "underline" }}>Home</Link>{" "}
         <span aria-hidden="true">›</span>{" "}
-        <Link href="/texting-gifs" style={{ textDecoration: "underline" }}>
-          Texting GIFs
-        </Link>{" "}
+        <Link href="/texting-gifs" style={{ textDecoration: "underline" }}>Texting GIFs</Link>{" "}
         <span aria-hidden="true">›</span>{" "}
         <span>Double Text GIFs</span>
       </nav>
@@ -158,76 +152,56 @@ export default function DoubleTextPage() {
           Double texting happens. Whether you’re doing a quick follow-up, sending
           a “just checking,” or accidentally triple texting, these{" "}
           <strong>double text GIFs</strong> are perfect for reacting without
-          overexplaining. Save your favorites and send them when you need a
-          second message moment.
+          overexplaining.
         </p>
       </header>
 
-      {/* Internal Links */}
       <section
         aria-label="Related texting GIF pages"
         style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 18 }}
       >
-        <Link
-          href="/texting-gifs/waiting-for-a-reply"
-          style={{ border: "1px solid #ddd", borderRadius: 999, padding: "8px 12px" }}
-        >
+        <Link href="/texting-gifs/waiting-for-a-reply-gifs"
+          style={{ border: "1px solid #ddd", borderRadius: 999, padding: "8px 12px" }}>
           Waiting for a Reply GIFs
         </Link>
 
-        <Link
-          href="/texting-gifs/left-on-read"
-          style={{ border: "1px solid #ddd", borderRadius: 999, padding: "8px 12px" }}
-        >
+        <Link href="/texting-gifs/left-on-read-gifs"
+          style={{ border: "1px solid #ddd", borderRadius: 999, padding: "8px 12px" }}>
           Left on Read GIFs
         </Link>
 
-        <Link
-          href="/texting-gifs/awkward-conversation-gifs"
-          style={{ border: "1px solid #ddd", borderRadius: 999, padding: "8px 12px" }}
-        >
+        <Link href="/texting-gifs/awkward-conversation-gifs"
+          style={{ border: "1px solid #ddd", borderRadius: 999, padding: "8px 12px" }}>
           Awkward Conversation GIFs
         </Link>
 
-        <Link
-          href="/texting-gifs"
-          style={{ border: "1px solid #ddd", borderRadius: 999, padding: "8px 12px" }}
-        >
+        <Link href="/texting-gifs"
+          style={{ border: "1px solid #ddd", borderRadius: 999, padding: "8px 12px" }}>
           Browse All Texting GIFs
         </Link>
       </section>
 
-      {/* GIF Grid */}
       <section aria-label="Double text GIF collection">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-            gap: 14,
-          }}
-        >
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+          gap: 14,
+        }}>
           {gifs.map((gif, idx) => (
-            <figure
-              key={`${gif.src}-${idx}`}
+            <figure key={`${gif.src}-${idx}`}
               style={{
                 border: "1px solid #eee",
                 borderRadius: 14,
                 overflow: "hidden",
                 margin: 0,
                 background: "#fff",
-              }}
-            >
+              }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={gif.src}
                 alt={gif.alt}
                 loading="lazy"
-                style={{
-                  width: "100%",
-                  height: 220,
-                  objectFit: "cover",
-                  display: "block",
-                }}
+                style={{ width: "100%", height: 220, objectFit: "cover" }}
               />
               <figcaption style={{ padding: 10 }}>
                 <div style={{ fontWeight: 700, marginBottom: 6 }}>{gif.title}</div>
@@ -240,30 +214,9 @@ export default function DoubleTextPage() {
         </div>
       </section>
 
-      {/* Extra SEO Text */}
-      <section style={{ marginTop: 26, maxWidth: 920 }}>
-        <h2 style={{ fontSize: 22, margin: "0 0 10px 0" }}>
-          When to use double text GIFs
-        </h2>
-        <p style={{ margin: "0 0 10px 0", lineHeight: 1.6 }}>
-          Use a double text reaction GIF when you need to follow up, clarify
-          something, or you realize you forgot a detail in your first message.
-          It’s also the perfect vibe when you’re joking about being a “double
-          texter” or when you’re sending the classic “just making sure you saw
-          this.”
-        </p>
-        <p style={{ margin: 0, lineHeight: 1.6 }}>
-          Want more texting categories? Head back to the{" "}
-          <Link href="/texting-gifs" style={{ textDecoration: "underline" }}>
-            Texting GIFs hub
-          </Link>{" "}
-          for more reaction pages.
-        </p>
-      </section>
-
       <footer style={{ marginTop: 28, paddingTop: 16, borderTop: "1px solid #eee" }}>
         <p style={{ margin: 0, fontSize: 14, opacity: 0.8 }}>
-          © {new Date().getFullYear()} gifmenow.com — Texting GIF collections
+          © {new Date().getFullYear()} gifmenow.com
         </p>
       </footer>
     </main>
