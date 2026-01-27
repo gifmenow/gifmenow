@@ -1,122 +1,338 @@
 {
+  "dt-1": {
+    "alt": "Double text check-in reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "SUufLaIr35PYeBxw1Z"
+  },
+  "dt-10": {
+    "alt": "Awkward double text follow-up GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "ulo4HMy6o11tSWO3E6"
+  },
+  "dt-11": {
+    "alt": "Another message double text GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "UipxfcxQmadkA"
+  },
+  "dt-12": {
+    "alt": "Double text spiral reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "k3ysanIoI6Yx2"
+  },
+  "dt-13": {
+    "alt": "Double text panic reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "2gxV19irHeh4oB1eJI"
+  },
+  "dt-14": {
+    "alt": "Double text mood reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "xSYLxjcvDAMlW"
+  },
+  "dt-15": {
+    "alt": "Please reply double text GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "11MaSmjZDwnzSU"
+  },
+  "dt-16": {
+    "alt": "Nervy double text reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "O56JjOpDoljTG"
+  },
+  "dt-17": {
+    "alt": "Double text pressure reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "VGRxlUu8sC6aGUY50u"
+  },
+  "dt-18": {
+    "alt": "Double text nudge reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "P1SXkeh3wxZ4Y"
+  },
+  "dt-19": {
+    "alt": "Double text wave reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "xT8qBitOKz67Pr2Ldu"
+  },
+  "dt-2": {
+    "alt": "Me again double text energy GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "3og0IMVPaqrnGfBnZm"
+  },
+  "dt-20": {
+    "alt": "Double text alert reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "RI7mc1yVbJ3fG"
+  },
+  "dt-21": {
+    "alt": "Double text anxiety reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "xThta2aRxRwLXEnLgY"
+  },
+  "dt-22": {
+    "alt": "Double text waiting reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "10vV9iD0vYkIve"
+  },
+  "dt-23": {
+    "alt": "Double text awkward reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "ARDeDE9BRiwpi"
+  },
+  "dt-24": {
+    "alt": "Double text classic reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "5yJxo17j5QiWs"
+  },
+  "dt-3": {
+    "alt": "Oops double text reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "QNAZKIao49m1MQ61fY"
+  },
+  "dt-4": {
+    "alt": "Typing again double text reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "3orifaXQhb1Ajto0fK"
+  },
+  "dt-5": {
+    "alt": "Don't ignore me double text reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "DQcqDjL0vcxz7lEhNT"
+  },
+  "dt-6": {
+    "alt": "Hello double text follow up reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "NfGTU1FFnPIwo"
+  },
+  "dt-7": {
+    "alt": "Nervous energy double texting GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "d3MMcCKoCmPN9yve"
+  },
+  "dt-8": {
+    "alt": "I said what I said double text reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "jRTD0svQ2M9WD4PNhh"
+  },
+  "dt-9": {
+    "alt": "Please respond double text reaction GIF",
+    "categories": [
+      "double-text"
+    ],
+    "giphyId": "26tjZDQcyLRp0BRny"
+  },
   "pfa-1": {
-    "giphyId": "3ohzdYJK1wAdPWVk88",
     "alt": "Plans falling apart reaction",
-    "categories": ["plans-fall-apart-gifs"]
-  },
-  "pfa-2": {
-    "giphyId": "gZfHAM1ucPQ2c",
-    "alt": "Car collapse reaction",
-    "categories": ["plans-fall-apart-gifs"]
-  },
-  "pfa-3": {
-    "giphyId": "YqAf8w2a0qf1m",
-    "alt": "Everything falls apart",
-    "categories": ["plans-fall-apart-gifs"]
-  },
-  "pfa-4": {
-    "giphyId": "f1NTdkdbG4XzW",
-    "alt": "Car trouble reaction",
-    "categories": ["plans-fall-apart-gifs"]
-  },
-  "pfa-5": {
-    "giphyId": "l1J9wMccAykUCLIic",
-    "alt": "Accepting chaos with a shrug",
-    "categories": ["plans-fall-apart-gifs"]
-  },
-  "pfa-6": {
-    "giphyId": "3o7btY356cSVYzmFS8",
-    "alt": "Laughing at disaster",
-    "categories": ["plans-fall-apart-gifs"]
-  },
-  "pfa-7": {
-    "giphyId": "QTgCdVqGHn2admrkAp",
-    "alt": "Shaking off disaster",
-    "categories": ["plans-fall-apart-gifs"]
-  },
-  "pfa-8": {
-    "giphyId": "SIIXDrZ8Rh2a4",
-    "alt": "Sad when plans fall apart",
-    "categories": ["plans-fall-apart-gifs"]
-  },
-  "pfa-9": {
-    "giphyId": "wIxm4k7ZABYF2C1y1V",
-    "alt": "Speechless after things go wrong",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "3ohzdYJK1wAdPWVk88"
   },
   "pfa-10": {
-    "giphyId": "tsjbJgxoCepjil9yyP",
     "alt": "Facepalm when everything goes sideways",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "tsjbJgxoCepjil9yyP"
   },
   "pfa-11": {
-    "giphyId": "KEzaThV76yyWoFtgSD",
     "alt": "Stunned at the chaos",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "KEzaThV76yyWoFtgSD"
   },
   "pfa-12": {
-    "giphyId": "l2Jed7s2YYiduPY3K",
     "alt": "Surprised by disaster",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "l2Jed7s2YYiduPY3K"
   },
   "pfa-13": {
-    "giphyId": "nt06LzuIfezp5mY8s2",
     "alt": "OMG disaster reaction",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "nt06LzuIfezp5mY8s2"
   },
   "pfa-14": {
-    "giphyId": "stRWAuumqD6yw5BkpG",
     "alt": "Laughing through the mess",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "stRWAuumqD6yw5BkpG"
   },
   "pfa-15": {
-    "giphyId": "CQMBjJz63FYIgEOWnA",
     "alt": "Epic fail reaction",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "CQMBjJz63FYIgEOWnA"
   },
   "pfa-16": {
-    "giphyId": "AWnwWMtOBE1vo9AHiV",
     "alt": "Accepting a failing plan",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "AWnwWMtOBE1vo9AHiV"
   },
   "pfa-17": {
-    "giphyId": "xUNd9OZH5WacCxu3Yc",
     "alt": "Splat after plans fall apart",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "xUNd9OZH5WacCxu3Yc"
   },
   "pfa-18": {
-    "giphyId": "3ohs7JTI4MWy7sDbry",
     "alt": "Disaster artist reaction",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "3ohs7JTI4MWy7sDbry"
   },
   "pfa-19": {
-    "giphyId": "hjMEr6aoht9iUIC3kM",
-    "alt": "What’s your next move after disaster?",
-    "categories": ["plans-fall-apart-gifs"]
+    "alt": "What\u2019s your next move after disaster?",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "hjMEr6aoht9iUIC3kM"
+  },
+  "pfa-2": {
+    "alt": "Car collapse reaction",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "gZfHAM1ucPQ2c"
   },
   "pfa-20": {
-    "giphyId": "f9YW1U1w7z2kLbr5nr",
     "alt": "Family fails reaction",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "f9YW1U1w7z2kLbr5nr"
   },
   "pfa-21": {
-    "giphyId": "3ohs4msTyynmOCoeGY",
     "alt": "Groundhog Day disaster reaction",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "3ohs4msTyynmOCoeGY"
   },
   "pfa-22": {
-    "giphyId": "7Rzn5ANhLPOZgqSD9Z",
     "alt": "Clumsy fail reaction",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "7Rzn5ANhLPOZgqSD9Z"
   },
   "pfa-23": {
-    "giphyId": "zN197TlVkVJ96",
-    "alt": "Please stop, everything’s a mess",
-    "categories": ["plans-fall-apart-gifs"]
+    "alt": "Please stop, everything\u2019s a mess",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "zN197TlVkVJ96"
   },
   "pfa-24": {
-    "giphyId": "1JTmbL98fWhglRluL5",
     "alt": "Detailing fail reaction",
-    "categories": ["plans-fall-apart-gifs"]
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "1JTmbL98fWhglRluL5"
+  },
+  "pfa-3": {
+    "alt": "Everything falls apart",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "YqAf8w2a0qf1m"
+  },
+  "pfa-4": {
+    "alt": "Car trouble reaction",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "f1NTdkdbG4XzW"
+  },
+  "pfa-5": {
+    "alt": "Accepting chaos with a shrug",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "l1J9wMccAykUCLIic"
+  },
+  "pfa-6": {
+    "alt": "Laughing at disaster",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "3o7btY356cSVYzmFS8"
+  },
+  "pfa-7": {
+    "alt": "Shaking off disaster",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "QTgCdVqGHn2admrkAp"
+  },
+  "pfa-8": {
+    "alt": "Sad when plans fall apart",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "SIIXDrZ8Rh2a4"
+  },
+  "pfa-9": {
+    "alt": "Speechless after things go wrong",
+    "categories": [
+      "plans-fall-apart-gifs"
+    ],
+    "giphyId": "wIxm4k7ZABYF2C1y1V"
   }
 }
