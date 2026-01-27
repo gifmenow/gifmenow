@@ -9,10 +9,8 @@ interface VaultEntry {
   id?: string;
 }
 
-/**
- * Load the GIF vault from /data/vault/gifs.json.
- * Returns an empty object if the file cannot be read or parsed.
- */
+// Load the GIF vault from the JSON file located at data/vault/gifs.json.
+// Resolves from process.cwd() to avoid __dirname issues in Vercel builds.
 function loadVault(): Record<string, VaultEntry> {
   try {
     const filePath = path.join(process.cwd(), "data", "vault", "gifs.json");
@@ -25,12 +23,11 @@ function loadVault(): Record<string, VaultEntry> {
 
 /**
  * Retrieve GIFs for a specific category slug.
- * Returns items shaped for GifGrid: { id, embedUrl, alt }.
- * If no GIFs match, returns [] (never throws).
+ * Returns items shaped for the GifGrid component: { id, embedUrl, alt }.
+ * If no matches, returns an empty array.
  */
 export function getGifsForCategory(slug: string) {
   const vault = loadVault();
-
   return Object.entries(vault)
     .filter(([, entry]) => Array.isArray(entry.categories) && entry.categories.includes(slug))
     .map(([key, entry]) => ({
